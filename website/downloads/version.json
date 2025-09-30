@@ -1,0 +1,42 @@
+{
+    "app": {
+        "name": "小黄衣",
+        "package": "com.xiaohangyi.app",
+        "description": "专属女性的电子衣橱"
+    },
+    "latest": {
+        "version": "1.0.0",
+        "versionCode": 1,
+        "releaseDate": "2025-01-01",
+        "downloadUrl": "downloads/xiaohangyi-v1.0.0.apk",
+        "fileSize": "15.2 MB",
+        "changelog": [
+            "🎉 首个正式版本发布",
+            "👕 衣橱管理功能",
+            "✨ 穿搭方案设计",
+            "⭐ 喜爱程度评分",
+            "📱 移动端优化体验",
+            "🎯 本地数据存储",
+            "🔒 隐私安全保护"
+        ],
+        "requirements": {
+            "android": "7.0+",
+            "storage": "50MB",
+            "permissions": [
+                "相机权限（拍照上传衣物）",
+                "存储权限（保存图片和数据）"
+            ]
+        }
+    },
+    "history": [
+        {
+            "version": "1.0.0",
+            "versionCode": 1,
+            "releaseDate": "2025-01-01",
+            "downloadUrl": "downloads/xiaohangyi-v1.0.0.apk",
+            "changelog": [
+                "首个正式版本发布"
+            ]
+        }
+    ]
+}

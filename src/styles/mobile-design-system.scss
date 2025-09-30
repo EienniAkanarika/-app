@@ -1,0 +1,436 @@
+/* 
+ * 移动端设计系统
+ * 作者：专业UI设计师
+ * 版本：2.0 Mobile First
+ */
+
+/* ===== 设计令牌 (Design Tokens) ===== */
+
+/* 色彩系统 */
+:root {
+    /* 主色调 */
+    --primary-color: #4776E6;
+    --primary-light: #6B8DEE;
+    --primary-dark: #3461D1;
+    --secondary-color: #8E54E9;
+
+    /* 语义化颜色 */
+    --success-color: #4CD964;
+    --warning-color: #FF9500;
+    --error-color: #FF3B30;
+    --info-color: #007AFF;
+
+    /* 中性色 */
+    --text-primary: #1C1C1E;
+    --text-secondary: #3A3A3C;
+    --text-tertiary: #8E8E93;
+    --text-quaternary: #C7C7CC;
+
+    /* 背景色 */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F2F2F7;
+    --bg-tertiary: #F9FAFF;
+    --bg-overlay: rgba(0, 0, 0, 0.4);
+
+    /* 边框和分割线 */
+    --border-color: #E5E5EA;
+    --separator-color: #D1D1D6;
+}
+
+/* 间距系统 (4px基础网格) */
+:root {
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+    --spacing-2xl: 24px;
+    --spacing-3xl: 32px;
+    --spacing-4xl: 40px;
+}
+
+/* 字体系统 */
+:root {
+    --font-size-xs: 11px;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-2xl: 20px;
+    --font-size-3xl: 24px;
+    --font-size-4xl: 28px;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.4;
+    --line-height-relaxed: 1.6;
+}
+
+/* 圆角系统 */
+:root {
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-3xl: 24px;
+    --radius-full: 50%;
+}
+
+/* 阴影系统 */
+:root {
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* 动画系统 */
+:root {
+    --duration-fast: 0.15s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== 通用组件样式 ===== */
+
+/* 移动端安全区域 */
+.safe-area-top {
+    padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 容器系统 */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.container-sm {
+    max-width: 640px;
+}
+
+.container-md {
+    max-width: 768px;
+}
+
+/* 按钮系统 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-out);
+    min-height: 44px;
+    /* iOS触摸标准 */
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: var(--shadow-md);
+
+    &:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+    }
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+
+    &:hover {
+        background: var(--bg-tertiary);
+    }
+}
+
+.btn-sm {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    min-height: 36px;
+}
+
+.btn-lg {
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    font-size: var(--font-size-lg);
+    min-height: 48px;
+}
+
+/* 输入框系统 */
+.input {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    background: var(--bg-primary);
+    transition: all var(--duration-normal) var(--ease-out);
+    min-height: 44px;
+
+    &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(71, 118, 230, 0.1);
+    }
+
+    &::placeholder {
+        color: var(--text-tertiary);
+    }
+}
+
+/* 卡片系统 */
+.card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all var(--duration-normal) var(--ease-out);
+
+    &:hover {
+        box-shadow: var(--shadow-md);
+    }
+}
+
+.card-padding {
+    padding: var(--spacing-lg);
+}
+
+.card-padding-sm {
+    padding: var(--spacing-md);
+}
+
+/* 标签系统 */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    transition: all var(--duration-fast) var(--ease-out);
+
+    &.tag-selected {
+        background: linear-gradient(135deg,
+                rgba(71, 118, 230, 0.1),
+                rgba(142, 84, 233, 0.1));
+        color: var(--primary-color);
+        border: 1px solid rgba(71, 118, 230, 0.2);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+/* 底部导航 */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-around;
+    padding: var(--spacing-sm) 0;
+    padding-bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom));
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+    min-width: 60px;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &.active {
+        color: var(--primary-color);
+    }
+}
+
+.nav-text {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: inherit;
+}
+
+/* ===== 响应式系统 ===== */
+
+/* 小屏手机 */
+@media (max-width: 375px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .btn {
+        min-height: 40px;
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+}
+
+/* 大屏手机 */
+@media (min-width: 414px) {
+    .container {
+        padding: 0 var(--spacing-xl);
+    }
+}
+
+/* 平板适配 */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-3xl);
+    }
+
+    .bottom-nav {
+        justify-content: center;
+        gap: var(--spacing-4xl);
+    }
+}
+
+/* ===== 工具类 ===== */
+
+/* 间距工具类 */
+.m-0 {
+    margin: 0;
+}
+
+.m-1 {
+    margin: var(--spacing-xs);
+}
+
+.m-2 {
+    margin: var(--spacing-sm);
+}
+
+.m-3 {
+    margin: var(--spacing-md);
+}
+
+.m-4 {
+    margin: var(--spacing-lg);
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: var(--spacing-xs);
+}
+
+.p-2 {
+    padding: var(--spacing-sm);
+}
+
+.p-3 {
+    padding: var(--spacing-md);
+}
+
+.p-4 {
+    padding: var(--spacing-lg);
+}
+
+/* 文本工具类 */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-tertiary {
+    color: var(--text-tertiary);
+}
+
+/* 显示工具类 */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+/* 隐藏滚动条 */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* 触摸反馈 */
+.touch-feedback {
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+
+    &:active {
+        transform: scale(0.98);
+        opacity: 0.8;
+    }
+}
